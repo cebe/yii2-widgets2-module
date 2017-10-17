@@ -57,32 +57,29 @@ JS;
                 <?php if(\Yii::$app->controller->module->dateBasedAccessControl) { ?>
                 <div class="panel-heading">
                     <div class="row">
-                        <div class="form-group col-sm-2">
+                        <div class="form-group col-sm-6">
                             <?= $form->field($model, 'publish_at')->widget(DateTimePicker::class, [
-                                'options' => [
-                                    'class' => 'form-control col-md-6',
-                                    'autocomplete' => 'off',
-
-                                ],
                                 'clientOptions' => [
-                                    'format' => 'yyyy-mm-dd hh:ii',
+                                    'format' => 'yyyy-mm-dd hh:ii Z',
+                                    'timezone' => 'UTC',
                                     'autoclose' => true,
                                     'todayHighlight' => true,
                                     'minView' => (\Yii::$app->controller->module->datepickerMinutes) ? 0 : 1,
                                 ],
                                 'clientEvents' => [],
-                            ])->textInput(['style' => 'color:white;']) ?>
+                            ]) ?>
                         </div>
-                        <div class="form-group col-sm-2">
+                        <div class="form-group col-sm-6">
                             <?= $form->field($model, 'expire_at')->widget(DateTimePicker::class, [
                                 'clientOptions' => [
-                                    'format' => 'yyyy-mm-dd hh:ii',
+                                    'format' => 'yyyy-mm-dd hh:ii Z',
+                                    'timezone' => 'UTC',
                                     'autoclose' => true,
                                     'todayHighlight' => true,
                                     'minView' => (\Yii::$app->controller->module->datepickerMinutes) ? 0 : 1,
                                 ],
                                 'clientEvents' => [],
-                            ])->textInput(['style' => 'color:white;']) ?>
+                            ]) ?>
                         </div>
                         <?= $form->field($model, 'timezone')->hiddenInput()->label(false) ?>
                     </div>
